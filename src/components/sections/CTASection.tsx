@@ -17,13 +17,13 @@ export const CTASection = () => {
           
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Join 50,000+ families who chose smart security over false alarms. 
-            <strong className="text-foreground"> Start your free trial today</strong> - no credit card required.
+            <strong className="text-foreground"> Get started with our free version</strong> to test camera compatibility.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Button variant="hero" size="xl" className="animate-scale-in">
               <Shield className="w-5 h-5 mr-2" />
-              Start Free Trial Now
+              Get Started Now
             </Button>
             <Button variant="outline-cta" size="xl" className="animate-scale-in">
               <Phone className="w-5 h-5 mr-2" />

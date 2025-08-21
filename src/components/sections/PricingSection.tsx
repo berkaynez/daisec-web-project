@@ -38,6 +38,7 @@ const pricingPlans = [
     ],
     limitations: [
       "Limited to existing cameras",
+      "Limited camera compatibility",
       "No hardware included"
     ],
     cta: "Choose Standard",
