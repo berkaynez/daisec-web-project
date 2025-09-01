@@ -12,29 +12,29 @@ export const HeroSection = () => {
             <div className="flex items-center gap-3 mb-6">
               <div className="flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium">
                 <Shield className="w-4 h-4" />
-                <span>Trusted by 50K+ homes</span>
+                <span>Upgrade your old cameras in 10 minutes</span>
               </div>
             </div>
             
             <h1 className="text-4xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-              Smart Security 
-              <span className="text-primary"> That Actually</span>
+              Turn Old Cameras Into
+              <span className="text-primary"> Smart, AI-Powered</span>
               <br />
-              <span className="text-accent">Protects</span>
+              <span className="text-accent">Security</span>
             </h1>
             
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed max-w-lg">
-              AI-powered monitoring that learns your routine and alerts you only when it matters. 
-              <strong className="text-foreground">Stop false alarms</strong> and start feeling secure.
+              With DaiSec <strong className="text-primary">Gateway Devices</strong>, connect your legacy IP/web cams to the cloud, add human & motion detection, and get instant alerts—
+              <strong className="text-foreground">without replacing your system</strong>.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <Button variant="hero" size="xl" className="animate-scale-in">
-                Start Free Trial
+                Choose Your Gateway
               </Button>
               <Button variant="outline-cta" size="xl" className="animate-scale-in">
                 <Eye className="w-5 h-5 mr-2" />
-                See Live Demo
+                Talk to Expert
               </Button>
             </div>
             

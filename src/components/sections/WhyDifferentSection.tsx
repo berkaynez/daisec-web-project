@@ -3,21 +3,30 @@ import { Check, X, Zap, Camera, Wifi, DollarSign, Shield, Clock } from "lucide-r
 
 const competitors = [
   {
-    name: "Traditional Security Systems",
+    name: "Traditional DVR Systems",
     features: [
-      { text: "Requires new cameras", available: false },
-      { text: "Expensive hardware installation", available: false },
-      { text: "Monthly monitoring fees", available: false },
-      { text: "Complex setup process", available: false }
+      { text: "High hardware costs", available: false },
+      { text: "Complex installation", available: false },
+      { text: "Limited AI features", available: false },
+      { text: "Poor mobile access", available: false }
     ]
   },
   {
-    name: "DaiSec Solution",
+    name: "New Smart Cameras",
     features: [
-      { text: "Works with existing cameras", available: true },
-      { text: "No additional hardware needed", available: true },
-      { text: "Direct cloud connection", available: true },
-      { text: "5-minute setup", available: true }
+      { text: "Very expensive replacement", available: false },
+      { text: "Waste existing cameras", available: false },
+      { text: "Multiple brand compatibility", available: false },
+      { text: "Scalability challenges", available: false }
+    ]
+  },
+  {
+    name: "DaiSec + Gateway",
+    features: [
+      { text: "Reuse existing cameras", available: true },
+      { text: "Plug-and-play Gateway", available: true },
+      { text: "Advanced AI detection", available: true },
+      { text: "Easy scaling & management", available: true }
     ]
   }
 ];
@@ -25,23 +34,23 @@ const competitors = [
 const benefits = [
   {
     icon: DollarSign,
-    title: "Save Thousands",
-    description: "No need to replace your existing IP cameras or buy expensive hubs"
+    title: "Lower Total Cost",
+    description: "Reuse existing cameras with our Gateway devices. No expensive replacements needed."
   },
   {
     icon: Camera,
-    title: "Extend Camera Life",
-    description: "Transform any old IP camera into a smart AI-powered security device"
+    title: "Multi-brand Support",
+    description: "ONVIF/RTSP compatible with most IP cameras. Works with your existing setup."
   },
   {
     icon: Zap,
-    title: "Instant AI Detection",
-    description: "Human and motion detection with real-time notifications to your phone"
+    title: "AI Where It Matters",
+    description: "Advanced human & motion detection with smart notifications and event logs."
   },
   {
     icon: Clock,
-    title: "Quick Setup",
-    description: "Connect directly to cloud in under 5 minutes - no technical skills required"
+    title: "Plug-and-Play Setup",
+    description: "Connect Gateway to network, auto-discover cameras, start AI detection in minutes."
   }
 ];
 
@@ -56,26 +65,26 @@ export const WhyDifferentSection = () => {
             Revolutionary Technology
           </div>
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            Why We're <span className="text-destructive">Different</span>
+            Why <span className="text-destructive">DaiSec</span> is Different
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Unlike other solutions that force you to buy new cameras, DaiSec works with your existing IP cameras. 
-            <strong className="text-foreground"> No hubs. No gateways. Just direct cloud connection.</strong>
+            We don't ask you to replace your cameras. We <strong className="text-foreground">upgrade</strong> them with <strong className="text-destructive">DaiSec Gateway</strong>. 
+            Plug-and-play setup, AI detection, and cloud access for your existing IP/web cameras.
           </p>
         </div>
 
         {/* Comparison Table */}
         <div className="bg-card rounded-2xl border shadow-xl p-8 mb-16">
           <h3 className="text-2xl font-bold text-center mb-8">See The Difference</h3>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-3 gap-6">
             {competitors.map((competitor, index) => (
               <div key={index} className={`p-6 rounded-xl border-2 ${
-                competitor.name === "DaiSec Solution" 
-                  ? "border-destructive bg-destructive/5" 
+                competitor.name === "DaiSec + Gateway" 
+                  ? "border-destructive bg-destructive/5 scale-105" 
                   : "border-muted bg-muted/30"
               }`}>
-                <h4 className={`text-xl font-bold mb-4 ${
-                  competitor.name === "DaiSec Solution" ? "text-destructive" : "text-muted-foreground"
+                <h4 className={`text-lg font-bold mb-4 ${
+                  competitor.name === "DaiSec + Gateway" ? "text-destructive" : "text-muted-foreground"
                 }`}>
                   {competitor.name}
                 </h4>
@@ -87,7 +96,7 @@ export const WhyDifferentSection = () => {
                       ) : (
                         <X className="w-5 h-5 text-muted-foreground flex-shrink-0" />
                       )}
-                      <span className={feature.available ? "text-foreground" : "text-muted-foreground"}>
+                      <span className={feature.available ? "text-foreground" : "text-muted-foreground text-sm"}>
                         {feature.text}
                       </span>
                     </div>
@@ -115,20 +124,20 @@ export const WhyDifferentSection = () => {
         <div className="bg-gradient-to-r from-destructive to-destructive/80 rounded-2xl p-8 md:p-12 text-center text-white">
           <div className="max-w-4xl mx-auto">
             <h3 className="text-3xl md:text-4xl font-bold mb-4">
-              Stop Buying New Cameras. Start Using What You Have.
+              Your Existing Cameras. Smarter in Minutes.
             </h3>
             <p className="text-xl mb-8 opacity-90">
-              DaiSec is the only solution that connects your existing IP cameras directly to the cloud 
-              without any additional hardware. Save money, reduce waste, and get AI-powered security today.
+              DaiSec Gateway adds AI detection, cloud access, and mobile alerts to legacy cameras—
+              simple setup, pro-grade reliability. Reuse, don't rebuy.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="hero" size="xl" className="bg-white text-destructive hover:bg-white/90">
                 <Shield className="w-5 h-5 mr-2" />
-                Test Your Cameras Now
+                Choose Your Gateway
               </Button>
               <Button variant="outline" size="xl" className="bg-white/10 border-white text-white hover:bg-white/20">
                 <Wifi className="w-5 h-5 mr-2" />
-                See Compatibility
+                See Plans
               </Button>
             </div>
           </div>
