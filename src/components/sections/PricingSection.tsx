@@ -27,14 +27,15 @@ const pricingPlans = [
     name: "Standard Plan",
     price: "$14.99",
     period: "per camera/month",
-    description: "Perfect for small homes and apartments",
+    description: "Connect supported IP cameras directly—no gateway required",
     icon: Zap,
     features: [
       "AI-powered detection",
       "Event-based recording",
       "30-day cloud storage",
       "Mobile alerts",
-      "Email support"
+      "Email support",
+      "No gateway required (supported cameras only)"
     ],
     limitations: [
       "Limited to existing cameras",
@@ -145,8 +146,8 @@ export const PricingSection = () => {
               )}
               
               {plan.highlight && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <div className="bg-accent text-accent-foreground px-4 py-2 rounded-full text-sm font-semibold">
+                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                  <div className="bg-accent text-accent-foreground px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap">
                     {plan.highlight}
                   </div>
                 </div>
