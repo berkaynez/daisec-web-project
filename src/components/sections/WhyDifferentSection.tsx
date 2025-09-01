@@ -21,7 +21,7 @@ const competitors = [
     ]
   },
   {
-    name: "DaiSec + Gateway",
+    name: "DaiSec",
     features: [
       { text: "Reuse existing cameras", available: true },
       { text: "Plug-and-play Gateway", available: true },
@@ -68,7 +68,7 @@ export const WhyDifferentSection = () => {
             Why <span className="text-destructive">DaiSec</span> is Different
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            We don't ask you to replace your cameras. We <strong className="text-foreground">upgrade</strong> them with <strong className="text-destructive">DaiSec Gateway</strong>. 
+            We don't ask you to replace your cameras. We <strong className="text-foreground">upgrade</strong> them with <strong className="text-destructive">DaiSec</strong>. 
             Plug-and-play setup, AI detection, and cloud access for your existing IP/web cameras.
           </p>
         </div>
@@ -79,12 +79,12 @@ export const WhyDifferentSection = () => {
           <div className="grid md:grid-cols-3 gap-6">
             {competitors.map((competitor, index) => (
               <div key={index} className={`p-6 rounded-xl border-2 ${
-                competitor.name === "DaiSec + Gateway" 
+                competitor.name === "DaiSec" 
                   ? "border-destructive bg-destructive/5 scale-105" 
                   : "border-muted bg-muted/30"
               }`}>
                 <h4 className={`text-lg font-bold mb-4 ${
-                  competitor.name === "DaiSec + Gateway" ? "text-destructive" : "text-muted-foreground"
+                  competitor.name === "DaiSec" ? "text-destructive" : "text-muted-foreground"
                 }`}>
                   {competitor.name}
                 </h4>
@@ -127,7 +127,7 @@ export const WhyDifferentSection = () => {
               Your Existing Cameras. Smarter in Minutes.
             </h3>
             <p className="text-xl mb-8 opacity-90">
-              DaiSec Gateway adds AI detection, cloud access, and mobile alerts to legacy cameras—
+              DaiSec adds AI detection, cloud access, and mobile alerts to legacy cameras—
               simple setup, pro-grade reliability. Reuse, don't rebuy.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
