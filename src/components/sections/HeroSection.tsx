@@ -24,7 +24,7 @@ export const HeroSection = () => {
             </h1>
             
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed max-w-lg">
-              With DaiSec <strong className="text-primary">Gateway Devices</strong>, connect your legacy IP/web cams to the cloud, add human & motion detection, and get instant alerts—
+              With <strong className="text-destructive font-bold">DaiSec</strong>, connect your legacy IP/web cams to the cloud, add human & motion detection, and get instant alerts—
               <strong className="text-foreground">without replacing your system</strong>.
             </p>
             
