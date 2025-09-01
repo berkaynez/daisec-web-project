@@ -63,8 +63,7 @@ const pricingPlans = [
     ],
     cta: "Get Gateway Deal",
     variant: "cta" as const,
-    popular: true,
-    savings: "Save $720/year vs Standard"
+    popular: true
   },
   {
     name: "Premium All-In",
@@ -98,10 +97,6 @@ const pricingPlans = [
       "One-time payment",
       "No monthly fees ever",
       "Basic support included"
-    ],
-    limitations: [
-      "No cloud storage",
-      "Limited support"
     ],
     cta: "Buy Lifetime",
     variant: "outline-cta" as const,
