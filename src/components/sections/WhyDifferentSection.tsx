@@ -65,7 +65,7 @@ export const WhyDifferentSection = () => {
             Revolutionary Technology
           </div>
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            Why <span className="text-destructive">DaiSec</span> is Different
+            Why Choose <span className="text-destructive">DaiSec</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             We don't ask you to replace your cameras. We <strong className="text-foreground">upgrade</strong> them with <strong className="text-destructive">DaiSec</strong>. 
