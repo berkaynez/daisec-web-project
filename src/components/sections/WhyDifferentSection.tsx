@@ -24,7 +24,7 @@ const competitors = [
     name: "DaiSec",
     features: [
       { text: "Reuse existing cameras", available: true },
-      { text: "Plug-and-play Gateway", available: true },
+      { text: "Plug-and-play setup", available: true },
       { text: "Advanced AI detection", available: true },
       { text: "Easy scaling & management", available: true }
     ]
@@ -35,7 +35,7 @@ const benefits = [
   {
     icon: DollarSign,
     title: "Lower Total Cost",
-    description: "Reuse existing cameras with our Gateway devices. No expensive replacements needed."
+    description: "Reuse your existing cameras. No expensive replacements needed."
   },
   {
     icon: Camera,
@@ -50,7 +50,7 @@ const benefits = [
   {
     icon: Clock,
     title: "Plug-and-Play Setup",
-    description: "Connect Gateway to network, auto-discover cameras, start AI detection in minutes."
+    description: "Connect to your network, auto-discover cameras, start AI detection in minutes."
   }
 ];
 
@@ -133,7 +133,7 @@ export const WhyDifferentSection = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="hero" size="xl" className="bg-white text-destructive hover:bg-white/90">
                 <Shield className="w-5 h-5 mr-2" />
-                Choose Your Gateway
+                Choose Your Plan
               </Button>
               <Button variant="outline" size="xl" className="bg-white/10 border-white text-white hover:bg-white/20">
                 <Wifi className="w-5 h-5 mr-2" />
