@@ -112,6 +112,10 @@ All colors MUST be HSL. Focus on trust, security, and conversion optimization.
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground;
   }
