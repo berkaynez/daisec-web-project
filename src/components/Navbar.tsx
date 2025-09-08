@@ -51,22 +51,22 @@ const Navbar: React.FC = () => {
         aria-label="Main navigation"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between h-20">
             {/* Logo and Brand */}
-            <button onClick={() => goTo('/')} className="flex items-center space-x-3 focus:outline-none" aria-label="Go to home">
-              <Logo className="w-8 h-8" />
-              <span className="text-xl font-bold text-slate-800">
+            <button onClick={() => goTo('/')} className="flex items-center space-x-4 focus:outline-none" aria-label="Go to home">
+              <Logo className="w-12 h-12" />
+              <span className="text-2xl font-bold text-slate-800">
                 <span className="text-red-600">Dai</span>Sec
               </span>
             </button>
 
             {/* Desktop Menu */}
-            <div className="hidden lg:flex items-center space-x-8">
+            <div className="hidden lg:flex items-center space-x-10">
               {menuItems.map((item) => (
                 <NavLink
                   key={item.href}
                   to={item.href}
-                  className={({ isActive }) => `text-sm font-medium transition-colors duration-200 hover:text-red-600 focus:outline-none focus:text-red-600 ${
+                  className={({ isActive }) => `text-base font-medium transition-colors duration-200 hover:text-red-600 focus:outline-none focus:text-red-600 ${
                     isActive ? 'text-red-600' : isScrolled ? 'text-slate-700' : 'text-slate-600'
                   }`}
                 >
@@ -79,7 +79,7 @@ const Navbar: React.FC = () => {
             <div className="hidden lg:flex items-center space-x-4">
               <Button 
                 variant="outline" 
-                size="sm"
+                size="default"
                 onClick={() => goTo('/support#contact')}
                 className="text-slate-700 border-slate-300 hover:bg-slate-50"
               >
@@ -88,7 +88,7 @@ const Navbar: React.FC = () => {
               </Button>
               <Button 
                 variant="default" 
-                size="sm"
+                size="default"
                 onClick={() => goTo('/pricing#gateways')}
                 className="bg-red-600 hover:bg-red-700 text-white"
               >
@@ -99,15 +99,15 @@ const Navbar: React.FC = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={toggleMobileMenu}
-              className="lg:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+              className="lg:hidden p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-menu"
               aria-label="Toggle mobile menu"
             >
               {isMobileMenuOpen ? (
-                <X className="w-6 h-6 text-slate-700" />
+                <X className="w-7 h-7 text-slate-700" />
               ) : (
-                <Menu className="w-6 h-6 text-slate-700" />
+                <Menu className="w-7 h-7 text-slate-700" />
               )}
             </button>
           </div>
@@ -125,7 +125,7 @@ const Navbar: React.FC = () => {
                   key={item.href}
                   to={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={({ isActive }) => `block w-full text-left px-3 py-2 text-base font-medium rounded-md transition-colors duration-200 hover:bg-slate-50 focus:outline-none focus:bg-slate-50 ${
+                  className={({ isActive }) => `block w-full text-left px-4 py-3 text-lg font-medium rounded-md transition-colors duration-200 hover:bg-slate-50 focus:outline-none focus:bg-slate-50 ${
                     isActive ? 'text-red-600 bg-red-50' : 'text-slate-700'
                   }`}
                 >
@@ -137,7 +137,7 @@ const Navbar: React.FC = () => {
               <div className="pt-4 space-y-3 border-t border-slate-200">
                 <Button 
                   variant="outline" 
-                  size="sm"
+                  size="default"
                   onClick={() => goTo('/support#contact')}
                   className="w-full text-slate-700 border-slate-300 hover:bg-slate-50"
                 >
@@ -146,7 +146,7 @@ const Navbar: React.FC = () => {
                 </Button>
                 <Button 
                   variant="default" 
-                  size="sm"
+                  size="default"
                   onClick={() => goTo('/pricing#gateways')}
                   className="w-full bg-red-600 hover:bg-red-700 text-white"
                 >
