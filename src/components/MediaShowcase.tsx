@@ -18,6 +18,21 @@ const items: Item[] = [
     caption: 'Works with legacy cams — multi-object labels',
   },
   {
+    src: '/images/delivery_labeled.webp',
+    alt: 'Delivery person detection with labeled bounding boxes',
+    caption: 'Smart delivery detection',
+  },
+  {
+    src: '/images/face_license_plate_labeled.webp',
+    alt: 'Face and license plate detection with AI labels',
+    caption: 'Advanced face & license plate detection',
+  },
+  {
+    src: '/images/live.webp',
+    alt: 'Live camera feed with real-time detection',
+    caption: 'Live monitoring with instant alerts',
+  },
+  {
     src: '/images/review.webp',
     alt: 'Event review user interface showing camera tiles and timeline',
     caption: 'Review events fast with visual timeline',
@@ -43,7 +58,7 @@ export const MediaShowcase: React.FC = () => {
           <p className="text-muted-foreground mt-2">Real detections and review UI captured from DaiSec demos.</p>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
           {items.map((item, index) => (
             <button
               key={index}
