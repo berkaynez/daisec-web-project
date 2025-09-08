@@ -67,28 +67,16 @@ export const HeroSection = () => {
             </div>
           </div>
           
-          {/* Hero Image */}
+          {/* Hero Image (replaced with detection.jpg and caption) */}
           <div className="animate-slide-up">
             <div className="relative">
-              <img 
-                src={heroImage} 
-                alt="Smart Security Camera System with AI monitoring"
-                className="w-full h-auto rounded-2xl shadow-hero"
+              <img
+                src="/images/detection.jpg"
+                alt="DaiSec AI detects a person and packages in real-time"
+                className="w-full rounded-xl shadow-lg ring-1 ring-black/5 object-cover"
+                loading="eager"
               />
-              {/* Floating UI Elements */}
-              <div className="absolute -top-4 -right-4 bg-card border shadow-card rounded-xl p-4 animate-scale-in">
-                <div className="flex items-center gap-2 text-sm">
-                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className="font-medium">Live Protection</span>
-                </div>
-              </div>
-              
-              <div className="absolute -bottom-4 -left-4 bg-card border shadow-card rounded-xl p-4 animate-scale-in">
-                <div className="text-sm">
-                  <div className="font-medium text-accent">$124,000</div>
-                  <div className="text-muted-foreground">Theft prevented this month</div>
-                </div>
-              </div>
+              <p className="text-xs text-gray-500 mt-2">Live AI detection — instant alert to your phone.</p>
             </div>
           </div>
         </div>
