@@ -6,17 +6,17 @@ This directory contains screenshots of the DaiSec application.
 
 The following images are referenced in the main README:
 
-- `landing.jpg` - Landing page screenshot
-- `pricing.jpg` - Pricing page screenshot  
-- `detection.jpg` - AI detection example
-- `mobile.jpg` - Mobile dashboard screenshot
-- `gateway.jpg` - Gateway setup screenshot
+- `landing.jpeg` - Landing page screenshot
+- `pricing.jpeg` - Pricing page screenshot  
+- `detection.jpeg` - AI detection example
+- `mobile.jpeg` - Mobile dashboard screenshot
+- `gateway.jpeg` - Gateway setup screenshot
 
 ## Image Specifications
 
 Current images are in JPEG format with the following specifications:
 
-- **Format**: JPEG (.jpg)
+- **Format**: JPEG (.jpeg)
 - **Desktop screenshots**: 1200x800px
 - **Mobile screenshots**: 400x800px
 - **Optimized for web**: Compressed for fast loading
