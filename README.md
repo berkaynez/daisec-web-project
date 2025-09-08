@@ -119,7 +119,7 @@ DaiSec offers two flexible deployment models:
 
 ## 🔗 Live Demo
 
-**🔗 [Live Demo on Vercel](https://secure-sense-launch.vercel.app)**
+**🔗 [Live Demo on Vercel](https://daisectest.vercel.app)**
 
 Experience DaiSec's modern interface and explore all features in action.
 
