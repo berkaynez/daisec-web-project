@@ -131,13 +131,17 @@ export const WhyDifferentSection = () => {
               simple setup, pro-grade reliability. Reuse, don't rebuy.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="hero" size="xl" className="bg-white text-destructive hover:bg-white/90">
+              <Button
+                variant="hero"
+                size="xl"
+                className="bg-white text-destructive hover:bg-white/90"
+                onClick={() => {
+                  const el = document.getElementById("pricing");
+                  if (el) el.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
                 <Shield className="w-5 h-5 mr-2" />
                 Choose Your Plan
-              </Button>
-              <Button variant="outline" size="xl" className="bg-white/10 border-white text-white hover:bg-white/20">
-                <Wifi className="w-5 h-5 mr-2" />
-                See Plans
               </Button>
             </div>
           </div>

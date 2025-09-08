@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Shield, Eye, Zap } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import heroImage from "@/assets/hero-camera-system.jpg";
 
 export const HeroSection = () => {
+  const navigate = useNavigate();
   return (
     <section className="relative bg-gradient-hero overflow-hidden">
       <div className="container mx-auto px-4 py-20 lg:py-32">
@@ -29,10 +31,24 @@ export const HeroSection = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <Button variant="hero" size="xl" className="animate-scale-in">
+              <Button
+                variant="hero"
+                size="xl"
+                className="animate-scale-in"
+                onClick={() => {
+                  const el = document.getElementById("pricing");
+                  if (el) el.scrollIntoView({ behavior: "smooth" });
+                  else navigate("/pricing");
+                }}
+              >
                 Choose Your Plan
               </Button>
-              <Button variant="outline-cta" size="xl" className="animate-scale-in">
+              <Button
+                variant="outline-cta"
+                size="xl"
+                className="animate-scale-in"
+                onClick={() => navigate("/contact")}
+              >
                 <Eye className="w-5 h-5 mr-2" />
                 Talk to Expert
               </Button>
