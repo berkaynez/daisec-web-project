@@ -127,7 +127,7 @@ export const PricingSection = () => {
           {pricingPlans.map((plan, index) => (
             <div 
               key={index}
-              className={`relative bg-card border rounded-2xl p-6 shadow-pricing hover:shadow-xl transition-all duration-300 hover:scale-105 animate-slide-up ${
+              className={`relative bg-card border rounded-2xl p-6 shadow-pricing hover:shadow-xl transition-all duration-300 hover:scale-105 animate-slide-up flex flex-col ${
                 plan.popular ? 'border-primary shadow-lg scale-105' : ''
               }`}
               style={{ animationDelay: `${index * 150}ms` }}
@@ -173,7 +173,7 @@ export const PricingSection = () => {
                 )}
               </div>
               
-              <ul className="space-y-3 mb-6">
+              <ul className="space-y-3 mb-6 flex-grow">
                 {plan.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-start gap-3 text-sm">
                     <Check className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
@@ -198,7 +198,7 @@ export const PricingSection = () => {
               
               <Button 
                 variant={plan.variant} 
-                className="w-full" 
+                className="w-full mt-auto" 
                 size="lg"
               >
                 {plan.cta}
