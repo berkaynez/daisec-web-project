@@ -2,24 +2,25 @@
 
 This directory contains screenshots of the DaiSec application.
 
-## Placeholder Images
+## Screenshot Images
 
-The following placeholder images are referenced in the main README:
+The following images are referenced in the main README:
 
-- `landing.png` - Landing page screenshot
-- `pricing.png` - Pricing page screenshot  
-- `detection.png` - AI detection example
-- `mobile.png` - Mobile dashboard screenshot
-- `gateway.png` - Gateway setup screenshot
+- `landing.jpg` - Landing page screenshot
+- `pricing.jpg` - Pricing page screenshot  
+- `detection.jpg` - AI detection example
+- `mobile.jpg` - Mobile dashboard screenshot
+- `gateway.jpg` - Gateway setup screenshot
 
-## Adding Screenshots
+## Image Specifications
 
-To add real screenshots:
+Current images are in JPEG format with the following specifications:
 
-1. Take screenshots of your application
-2. Save them in this directory with the names above
-3. Ensure they are optimized for web (PNG or WebP format)
-4. Recommended dimensions: 1200x800px for desktop, 400x800px for mobile
+- **Format**: JPEG (.jpg)
+- **Desktop screenshots**: 1200x800px
+- **Mobile screenshots**: 400x800px
+- **Optimized for web**: Compressed for fast loading
+- **Quality**: High resolution for clear display
 
 ## Image Optimization
 
