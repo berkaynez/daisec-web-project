@@ -1,4 +1,5 @@
 import React, { lazy } from 'react';
+import ScrollToTop from '@/components/ScrollToTop';
 import { createBrowserRouter } from 'react-router-dom';
 import MainLayout from '@/layouts/MainLayout';
 
@@ -15,7 +16,12 @@ const NotFound = lazy(() => import('@/pages/NotFound'));
 
 export const router = createBrowserRouter([
   {
-    element: <MainLayout />,
+    element: (
+      <>
+        <ScrollToTop />
+        <MainLayout />
+      </>
+    ),
     children: [
       { path: '/', element: <Home /> },
       { path: '/features', element: <Features /> },
