@@ -25,10 +25,11 @@ import {
 
 const Pricing: React.FC = () => {
   const navigate = useNavigate();
-  useHashScroll();
   const [isYearly, setIsYearly] = useState(false);
   const [showCheckoutModal, setShowCheckoutModal] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState('');
+  
+  // useHashScroll();
 
   const yearlyDiscount = 0.15;
 
