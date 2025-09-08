@@ -1,14 +1,9 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
-import { SectionHeader } from '@/components/SectionHeader';
-import { PlanCard } from '@/components/Pricing/PlanCard';
-import { Calculator } from '@/components/Pricing/Calculator';
-import { Accordion } from '@/components/Accordion';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Switch } from '@/components/ui/switch';
-import { useHashScroll } from '@/hooks/useHashScroll';
 import { 
   Zap, 
   Shield, 
@@ -26,17 +21,11 @@ import {
 const Pricing: React.FC = () => {
   const navigate = useNavigate();
   const [isYearly, setIsYearly] = useState(false);
-  const [showCheckoutModal, setShowCheckoutModal] = useState(false);
-  const [selectedPlan, setSelectedPlan] = useState('');
-  
-  // useHashScroll();
 
-  const yearlyDiscount = 0.15;
-
-  const pricingPlans = useMemo(() => [
+  const pricingPlans = [
     {
       name: "Free",
-      price: isYearly ? "$0" : "$0",
+      price: "$0",
       period: "forever",
       description: "Perfect for testing camera compatibility",
       icon: Zap,
@@ -47,11 +36,6 @@ const Pricing: React.FC = () => {
         "No recording",
         "Basic mobile app"
       ],
-      limitations: [
-        "No alerts",
-        "No cloud storage",
-        "Community support only"
-      ],
       cta: "Get Started Free",
       ctaTarget: "/support#contact",
       variant: "outline" as const,
@@ -59,7 +43,7 @@ const Pricing: React.FC = () => {
     },
     {
       name: "Standard",
-      price: isYearly ? `$${(9.99 * (1 - yearlyDiscount)).toFixed(2)}` : "$9.99",
+      price: isYearly ? "$8.49" : "$9.99",
       period: "per camera/month",
       description: "AI detection for supported cameras—no gateway required",
       icon: Shield,
@@ -71,10 +55,6 @@ const Pricing: React.FC = () => {
         "Email support",
         "No gateway required (supported cameras only)"
       ],
-      limitations: [
-        "Limited to existing cameras",
-        "Requires stable internet"
-      ],
       cta: "Choose Standard",
       ctaTarget: "#checkout",
       variant: "cta" as const,
@@ -82,7 +62,7 @@ const Pricing: React.FC = () => {
     },
     {
       name: "Gateway + Subscription",
-      price: isYearly ? `$${(140 + (5 * 12 * (1 - yearlyDiscount))).toFixed(0)}` : "$140",
+      price: isYearly ? "$194" : "$140",
       period: isYearly ? "gateway + $5/month" : "gateway + $5/month",
       description: "Gateway device with reduced monthly cost",
       icon: Cpu,
@@ -101,7 +81,7 @@ const Pricing: React.FC = () => {
     },
     {
       name: "Premium All-In",
-      price: isYearly ? `$${(25 * (1 - yearlyDiscount)).toFixed(2)}` : "$25",
+      price: isYearly ? "$21.25" : "$25",
       period: "per month",
       description: "Everything included with free gateway device",
       icon: Crown,
@@ -137,68 +117,17 @@ const Pricing: React.FC = () => {
       variant: "outline-cta" as const,
       popular: false
     }
-  ], [isYearly, yearlyDiscount]);
+  ];
 
-  const gateways = useMemo(() => [
-    {
-      name: 'Raspberry Pi + Coral',
-      description: 'Perfect for home users and small setups',
-      price: '$140',
-      features: ['1-2 cameras @ 5fps', 'Easy setup', 'Low power consumption'],
-      icon: Cpu
-    },
-    {
-      name: 'Jetson Nano/Orin',
-      description: 'Ideal for small businesses and larger setups',
-      price: '$299',
-      features: ['2-4 cameras @ 3fps', 'PoE support', 'Advanced processing'],
-      icon: Wifi
-    },
-    {
-      name: 'Cloud-Only',
-      description: 'No hardware required, direct camera connection',
-      price: '$0',
-      features: ['1-2 cameras @ 2fps', 'Instant setup', 'Automatic updates'],
-      icon: Cloud
+  const handleCtaClick = (target: string) => {
+    if (target.startsWith('#')) {
+      const element = document.querySelector(target);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      navigate(target);
     }
-  ], []);
-
-  const faqItems = useMemo(() => [
-    {
-      id: '1',
-      question: 'Can I change my plan later?',
-      answer: 'Yes! You can upgrade or downgrade your plan at any time. Changes take effect immediately, and we\'ll prorate any billing differences.'
-    },
-    {
-      id: '2',
-      question: 'What happens if I cancel?',
-      answer: 'You can cancel anytime with no penalties. Your service continues until the end of your billing period, and you\'ll retain access to your stored footage for 30 days.'
-    },
-    {
-      id: '3',
-      question: 'Do you offer refunds?',
-      answer: 'Yes, we offer a 30-day money-back guarantee. If you\'re not satisfied, contact support for a full refund.'
-    },
-    {
-      id: '4',
-      question: 'How does the yearly discount work?',
-      answer: 'Save 15% when you pay annually. The discount is automatically applied to your monthly rate, so you pay less per month.'
-    },
-    {
-      id: '5',
-      question: 'What cameras are supported?',
-      answer: 'We support 200+ camera brands including Hikvision, Dahua, Axis, Bosch, and any ONVIF/RTSP compatible camera.'
-    },
-    {
-      id: '6',
-      question: 'Can I use my existing cameras?',
-      answer: 'Absolutely! That\'s the main benefit of DaiSec. We upgrade your existing cameras with AI intelligence without requiring replacements.'
-    }
-  ], []);
-
-  const handlePlanSelect = (planName: string) => {
-    setSelectedPlan(planName);
-    setShowCheckoutModal(true);
   };
 
   return (
@@ -250,21 +179,55 @@ const Pricing: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
             {pricingPlans.map((plan, index) => (
-              <PlanCard
-                key={index}
-                name={plan.name}
-                price={plan.price}
-                period={plan.period}
-                description={plan.description}
-                features={plan.features}
-                limitations={plan.limitations}
-                cta={plan.cta}
-                ctaTarget={plan.ctaTarget}
-                variant={plan.variant}
-                popular={plan.popular}
-                highlight={plan.highlight}
-                icon={plan.icon}
-              />
+              <Card key={index} className={`relative p-6 flex flex-col ${plan.popular ? 'border-primary shadow-lg scale-105' : ''}`}>
+                {plan.popular && (
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                    <div className="bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-semibold">
+                      Most Popular
+                    </div>
+                  </div>
+                )}
+                
+                {plan.highlight && (
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                    <div className="bg-accent text-accent-foreground px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap">
+                      {plan.highlight}
+                    </div>
+                  </div>
+                )}
+                
+                <div className="text-center mb-6">
+                  <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-primary/20 to-accent/20 rounded-xl mb-4">
+                    <plan.icon className="w-6 h-6 text-primary" />
+                  </div>
+                  
+                  <h3 className="text-xl font-bold text-foreground mb-2">{plan.name}</h3>
+                  <p className="text-sm text-muted-foreground mb-4">{plan.description}</p>
+                  
+                  <div className="mb-4">
+                    <div className="text-3xl font-bold text-foreground">{plan.price}</div>
+                    <div className="text-sm text-muted-foreground">{plan.period}</div>
+                  </div>
+                </div>
+                
+                <ul className="space-y-3 mb-6 flex-grow">
+                  {plan.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-start gap-3 text-sm">
+                      <CheckCircle className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                
+                <Button 
+                  variant={plan.variant} 
+                  className="w-full mt-auto" 
+                  size="lg"
+                  onClick={() => handleCtaClick(plan.ctaTarget)}
+                >
+                  {plan.cta}
+                </Button>
+              </Card>
             ))}
           </div>
         </div>
@@ -273,74 +236,153 @@ const Pricing: React.FC = () => {
       {/* Gateways Section */}
       <section id="gateways" className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
-          <SectionHeader
-            title="Gateway Options"
-            description="Choose the right gateway for your setup"
-          />
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Gateway Options</h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Choose the right gateway for your setup
+            </p>
+          </div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            {gateways.map((gateway, index) => (
-              <Card key={index} className="p-6 text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-accent/20 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <gateway.icon className="w-8 h-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold mb-2">{gateway.name}</h3>
-                <p className="text-muted-foreground mb-4">{gateway.description}</p>
-                <div className="text-2xl font-bold text-primary mb-4">{gateway.price}</div>
-                
-                <ul className="space-y-2 mb-6">
-                  {gateway.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center gap-2 text-sm">
-                      <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                
-                <Button 
-                  variant="outline" 
-                  className="w-full"
-                  onClick={() => navigate('/gateways')}
-                >
-                  See Full Specs
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+            <Card className="p-6 text-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-accent/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <Cpu className="w-8 h-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-bold mb-2">Raspberry Pi + Coral</h3>
+              <p className="text-muted-foreground mb-4">Perfect for home users and small setups</p>
+              <div className="text-2xl font-bold text-primary mb-4">$140</div>
+              
+              <ul className="space-y-2 mb-6">
+                <li className="flex items-center gap-2 text-sm">
+                  <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                  <span>1-2 cameras @ 5fps</span>
+                </li>
+                <li className="flex items-center gap-2 text-sm">
+                  <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                  <span>Easy setup</span>
+                </li>
+                <li className="flex items-center gap-2 text-sm">
+                  <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                  <span>Low power consumption</span>
+                </li>
+              </ul>
+              
+              <Button 
+                variant="outline" 
+                className="w-full"
+                onClick={() => navigate('/gateways')}
+              >
+                See Full Specs
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </Card>
 
-      {/* Cost Calculator */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <SectionHeader
-            title="Cost Calculator"
-            description="Estimate your monthly costs based on your setup"
-          />
-          
-          <div className="max-w-4xl mx-auto">
-            <Calculator />
+            <Card className="p-6 text-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-accent/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <Wifi className="w-8 h-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-bold mb-2">Jetson Nano/Orin</h3>
+              <p className="text-muted-foreground mb-4">Ideal for small businesses and larger setups</p>
+              <div className="text-2xl font-bold text-primary mb-4">$299</div>
+              
+              <ul className="space-y-2 mb-6">
+                <li className="flex items-center gap-2 text-sm">
+                  <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                  <span>2-4 cameras @ 3fps</span>
+                </li>
+                <li className="flex items-center gap-2 text-sm">
+                  <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                  <span>PoE support</span>
+                </li>
+                <li className="flex items-center gap-2 text-sm">
+                  <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                  <span>Advanced processing</span>
+                </li>
+              </ul>
+              
+              <Button 
+                variant="outline" 
+                className="w-full"
+                onClick={() => navigate('/gateways')}
+              >
+                See Full Specs
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </Card>
+
+            <Card className="p-6 text-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-accent/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <Cloud className="w-8 h-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-bold mb-2">Cloud-Only</h3>
+              <p className="text-muted-foreground mb-4">No hardware required, direct camera connection</p>
+              <div className="text-2xl font-bold text-primary mb-4">$0</div>
+              
+              <ul className="space-y-2 mb-6">
+                <li className="flex items-center gap-2 text-sm">
+                  <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                  <span>1-2 cameras @ 2fps</span>
+                </li>
+                <li className="flex items-center gap-2 text-sm">
+                  <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                  <span>Instant setup</span>
+                </li>
+                <li className="flex items-center gap-2 text-sm">
+                  <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                  <span>Automatic updates</span>
+                </li>
+              </ul>
+              
+              <Button 
+                variant="outline" 
+                className="w-full"
+                onClick={() => navigate('/gateways')}
+              >
+                See Full Specs
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </Card>
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-20">
         <div className="container mx-auto px-4">
-          <SectionHeader
-            title="Frequently Asked Questions"
-            description="Everything you need to know about DaiSec pricing"
-          />
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Everything you need to know about DaiSec pricing
+            </p>
+          </div>
           
-          <div className="max-w-3xl mx-auto">
-            <Accordion items={faqItems} />
+          <div className="max-w-3xl mx-auto space-y-4">
+            <Card className="p-6">
+              <h3 className="text-lg font-semibold mb-2">Can I change my plan later?</h3>
+              <p className="text-muted-foreground">
+                Yes! You can upgrade or downgrade your plan at any time. Changes take effect immediately, and we'll prorate any billing differences.
+              </p>
+            </Card>
+            
+            <Card className="p-6">
+              <h3 className="text-lg font-semibold mb-2">What happens if I cancel?</h3>
+              <p className="text-muted-foreground">
+                You can cancel anytime with no penalties. Your service continues until the end of your billing period, and you'll retain access to your stored footage for 30 days.
+              </p>
+            </Card>
+            
+            <Card className="p-6">
+              <h3 className="text-lg font-semibold mb-2">Do you offer refunds?</h3>
+              <p className="text-muted-foreground">
+                Yes, we offer a 30-day money-back guarantee. If you're not satisfied, contact support for a full refund.
+              </p>
+            </Card>
           </div>
         </div>
       </section>
 
       {/* Checkout Stub */}
-      <section id="checkout" className="py-20">
+      <section id="checkout" className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto">
             <Card className="p-8 text-center">
@@ -358,7 +400,7 @@ const Pricing: React.FC = () => {
                   variant="hero" 
                   size="lg" 
                   className="w-full"
-                  onClick={() => setShowCheckoutModal(true)}
+                  onClick={() => navigate('/support#contact')}
                 >
                   <MessageSquare className="w-5 h-5 mr-2" />
                   Contact Sales
@@ -378,34 +420,6 @@ const Pricing: React.FC = () => {
           </div>
         </div>
       </section>
-
-      {/* Checkout Modal */}
-      {showCheckoutModal && (
-        <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
-          <Card className="p-8 max-w-md w-full">
-            <h3 className="text-xl font-bold mb-4">Demo Build</h3>
-            <p className="text-muted-foreground mb-6">
-              This is a demonstration build. To proceed with your order for <strong>{selectedPlan}</strong>, 
-              please contact our sales team.
-            </p>
-            <div className="space-y-3">
-              <Button 
-                className="w-full"
-                onClick={() => navigate('/support#contact')}
-              >
-                Contact Sales Team
-              </Button>
-              <Button 
-                variant="outline" 
-                className="w-full"
-                onClick={() => setShowCheckoutModal(false)}
-              >
-                Close
-              </Button>
-            </div>
-          </Card>
-        </div>
-      )}
     </>
   );
 };
