@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Phone } from 'lucide-react';
+import { NavLink, useNavigate } from 'react-router-dom';
 import Logo from './Logo';
 
 const menuItems = [
@@ -53,14 +54,9 @@ const Navbar: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
+  const navigate = useNavigate();
+  const goTo = (path: string) => {
+    navigate(path);
     setIsMobileMenuOpen(false);
   };
 
@@ -92,19 +88,15 @@ const Navbar: React.FC = () => {
             {/* Desktop Menu */}
             <div className="hidden lg:flex items-center space-x-8">
               {menuItems.map((item) => (
-                <button
+                <NavLink
                   key={item.href}
-                  onClick={() => scrollToSection(item.href)}
-                  className={`text-sm font-medium transition-colors duration-200 hover:text-red-600 focus:outline-none focus:text-red-600 ${
-                    activeSection === item.href.slice(1)
-                      ? 'text-red-600'
-                      : isScrolled 
-                        ? 'text-slate-700' 
-                        : 'text-slate-600'
+                  to={item.href.replace('#','/')}
+                  className={({ isActive }) => `text-sm font-medium transition-colors duration-200 hover:text-red-600 focus:outline-none focus:text-red-600 ${
+                    isActive ? 'text-red-600' : isScrolled ? 'text-slate-700' : 'text-slate-600'
                   }`}
                 >
                   {item.label}
-                </button>
+                </NavLink>
               ))}
             </div>
 
@@ -113,7 +105,7 @@ const Navbar: React.FC = () => {
               <Button 
                 variant="outline" 
                 size="sm"
-                onClick={() => scrollToSection('#pricing')}
+                onClick={() => goTo('/contact')}
                 className="text-slate-700 border-slate-300 hover:bg-slate-50"
               >
                 <Phone className="w-4 h-4 mr-2" />
@@ -122,7 +114,7 @@ const Navbar: React.FC = () => {
               <Button 
                 variant="default" 
                 size="sm"
-                onClick={() => scrollToSection('#gateways')}
+                onClick={() => goTo('/gateways')}
                 className="bg-red-600 hover:bg-red-700 text-white"
               >
                 Choose Gateway
@@ -154,17 +146,16 @@ const Navbar: React.FC = () => {
           >
             <div className="px-4 py-6 space-y-4">
               {menuItems.map((item) => (
-                <button
+                <NavLink
                   key={item.href}
-                  onClick={() => scrollToSection(item.href)}
-                  className={`block w-full text-left px-3 py-2 text-base font-medium rounded-md transition-colors duration-200 hover:bg-slate-50 focus:outline-none focus:bg-slate-50 ${
-                    activeSection === item.href.slice(1)
-                      ? 'text-red-600 bg-red-50'
-                      : 'text-slate-700'
+                  to={item.href.replace('#','/')}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={({ isActive }) => `block w-full text-left px-3 py-2 text-base font-medium rounded-md transition-colors duration-200 hover:bg-slate-50 focus:outline-none focus:bg-slate-50 ${
+                    isActive ? 'text-red-600 bg-red-50' : 'text-slate-700'
                   }`}
                 >
                   {item.label}
-                </button>
+                </NavLink>
               ))}
               
               {/* Mobile CTA Buttons */}
@@ -172,7 +163,7 @@ const Navbar: React.FC = () => {
                 <Button 
                   variant="outline" 
                   size="sm"
-                  onClick={() => scrollToSection('#pricing')}
+                  onClick={() => goTo('/contact')}
                   className="w-full text-slate-700 border-slate-300 hover:bg-slate-50"
                 >
                   <Phone className="w-4 h-4 mr-2" />
@@ -181,7 +172,7 @@ const Navbar: React.FC = () => {
                 <Button 
                   variant="default" 
                   size="sm"
-                  onClick={() => scrollToSection('#gateways')}
+                  onClick={() => goTo('/gateways')}
                   className="w-full bg-red-600 hover:bg-red-700 text-white"
                 >
                   Choose Gateway
