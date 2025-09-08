@@ -154,9 +154,3 @@ SOFTWARE.
 ```
 
 ---
-
-<div align="center">
-
-**Made with ❤️ by the DaiSec Team**
-
-</div>
