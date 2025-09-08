@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-sm text-muted-foreground">
         <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-6">
           <div className="text-center md:text-left">
-            <div className="text-foreground font-bold">DaiSec</div>
+            <div className="text-foreground font-bold">Daimia</div>
             <div className="text-xs">Smart security, made simple.</div>
           </div>
           <nav className="flex flex-wrap gap-4 md:gap-6">
@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
             <NavLink to="/contact" className="hover:text-foreground">Contact</NavLink>
           </nav>
         </div>
-        <div className="mt-6 text-center text-xs">© {new Date().getFullYear()} DaiSec. All rights reserved.</div>
+        <div className="mt-6 text-center text-xs">© {new Date().getFullYear()} Daimia. All rights reserved.</div>
       </div>
     </footer>
   );

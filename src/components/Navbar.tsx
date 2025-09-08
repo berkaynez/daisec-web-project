@@ -78,12 +78,12 @@ const Navbar: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo and Brand */}
-            <div className="flex items-center space-x-3">
+            <button onClick={() => goTo('/')} className="flex items-center space-x-3 focus:outline-none" aria-label="Go to home">
               <Logo className="w-8 h-8" />
               <span className="text-xl font-bold text-slate-800">
                 <span className="text-red-600">Dai</span>Sec
               </span>
-            </div>
+            </button>
 
             {/* Desktop Menu */}
             <div className="hidden lg:flex items-center space-x-8">
