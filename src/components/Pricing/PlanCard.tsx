@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Check, X } from 'lucide-react';
 
@@ -35,6 +36,8 @@ export const PlanCard: React.FC<PlanCardProps> = ({
   savings,
   icon: Icon
 }) => {
+  const navigate = useNavigate();
+  
   const handleCtaClick = () => {
     if (ctaTarget.startsWith('#')) {
       // Scroll to section on current page
@@ -44,7 +47,7 @@ export const PlanCard: React.FC<PlanCardProps> = ({
       }
     } else {
       // Navigate to page
-      window.location.href = ctaTarget;
+      navigate(ctaTarget);
     }
   };
 

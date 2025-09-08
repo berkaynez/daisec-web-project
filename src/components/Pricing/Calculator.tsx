@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -12,6 +13,7 @@ interface CalculatorProps {
 }
 
 export const Calculator: React.FC<CalculatorProps> = ({ className = "" }) => {
+  const navigate = useNavigate();
   const [cameras, setCameras] = useState(2);
   const [recordingMode, setRecordingMode] = useState('event');
   const [needsGateway, setNeedsGateway] = useState(false);
@@ -145,7 +147,14 @@ export const Calculator: React.FC<CalculatorProps> = ({ className = "" }) => {
 
           <Button 
             className="w-full" 
-            onClick={() => document.querySelector('#checkout')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => {
+              const element = document.querySelector('#checkout');
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+              } else {
+                navigate('/pricing#checkout');
+              }
+            }}
           >
             Choose This Plan
           </Button>

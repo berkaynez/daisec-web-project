@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useNavigate } from 'react-router-dom';
 import { SectionHeader } from '@/components/SectionHeader';
 import { PlanCard } from '@/components/Pricing/PlanCard';
 import { Calculator } from '@/components/Pricing/Calculator';
@@ -23,6 +24,7 @@ import {
 } from 'lucide-react';
 
 const Pricing: React.FC = () => {
+  const navigate = useNavigate();
   useHashScroll();
   const [isYearly, setIsYearly] = useState(false);
   const [showCheckoutModal, setShowCheckoutModal] = useState(false);
@@ -297,7 +299,7 @@ const Pricing: React.FC = () => {
                 <Button 
                   variant="outline" 
                   className="w-full"
-                  onClick={() => window.location.href = '/gateways'}
+                  onClick={() => navigate('/gateways')}
                 >
                   See Full Specs
                   <ArrowRight className="w-4 h-4 ml-2" />
@@ -365,7 +367,7 @@ const Pricing: React.FC = () => {
                   variant="outline" 
                   size="lg" 
                   className="w-full"
-                  onClick={() => window.location.href = '/support'}
+                  onClick={() => navigate('/support#contact')}
                 >
                   <DollarSign className="w-5 h-5 mr-2" />
                   Talk to Expert
@@ -388,7 +390,7 @@ const Pricing: React.FC = () => {
             <div className="space-y-3">
               <Button 
                 className="w-full"
-                onClick={() => window.location.href = '/support#contact'}
+                onClick={() => navigate('/support#contact')}
               >
                 Contact Sales Team
               </Button>
