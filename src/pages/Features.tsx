@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
-import { SectionHeader } from '@/components/SectionHeader';
+import Container from '@/components/ui/Container';
+import Section from '@/components/ui/Section';
+import SectionHeader from '@/components/ui/SectionHeader';
 import { Accordion } from '@/components/Accordion';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -105,8 +107,8 @@ const Features: React.FC = () => {
       </Helmet>
       
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-hero">
-        <div className="container mx-auto px-4">
+      <Section className="bg-gradient-hero">
+        <Container>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="text-sm font-medium text-accent uppercase tracking-wider mb-2">
@@ -115,7 +117,7 @@ const Features: React.FC = () => {
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
                 Features that upgrade your <span className="text-destructive">old cameras</span>
               </h1>
-              <p className="text-xl text-muted-foreground mb-8">
+              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
                 Transform your existing IP cameras into smart security systems with AI detection, 
                 instant alerts, and intelligent recording. No replacement needed.
               </p>
@@ -140,15 +142,15 @@ const Features: React.FC = () => {
               <p className="text-xs text-gray-500 mt-2">Multi-object detection on legacy cameras</p>
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* Core Features Grid */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
+      <Section>
+        <Container>
           <SectionHeader
             title="Core Features"
-            description="Everything you need to secure your property with AI intelligence"
+            subtitle="Everything you need to secure your property with AI intelligence"
           />
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -168,15 +170,15 @@ const Features: React.FC = () => {
               </Card>
             ))}
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* Deep Dive Tabs */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
+      <Section className="bg-muted/30">
+        <Container>
           <SectionHeader
             title="Technical Deep Dive"
-            description="Learn how each feature works under the hood"
+            subtitle="Learn how each feature works under the hood"
           />
           
           <Tabs value={activeTab} onValueChange={setActiveTab} className="max-w-4xl mx-auto">

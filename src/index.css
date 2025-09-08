@@ -114,9 +114,26 @@ All colors MUST be HSL. Focus on trust, security, and conversion optimization.
 
   html {
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground text-gray-800;
+  }
+}
+
+@layer components {
+  /* Prose defaults for long text pages (Docs/Support) */
+  .prose :where(h1) {
+    @apply text-3xl md:text-4xl font-bold;
+  }
+  
+  .prose :where(h2) {
+    @apply text-2xl md:text-3xl font-semibold;
+  }
+  
+  .prose :where(p) {
+    @apply leading-relaxed;
   }
 }

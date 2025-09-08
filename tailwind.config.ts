@@ -12,13 +12,23 @@ export default {
 	theme: {
 		container: {
 			center: true,
-			padding: '2rem',
+			padding: "1rem",
 			screens: {
-				'2xl': '1400px'
+				lg: "1024px",
+				xl: "1280px",
+				"2xl": "1440px"
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ["Inter", "ui-sans-serif", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "Noto Sans", "sans-serif"]
+			},
 			colors: {
+				brand: {
+					primary: "#0B1F3A",
+					accent: "#FF7A00",
+					gray: "#6B7280"
+				},
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
@@ -66,9 +76,17 @@ export default {
 				}
 			},
 			borderRadius: {
+				xl: "1rem",
+				"2xl": "1.25rem",
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
+			},
+			boxShadow: {
+				card: "0 6px 24px -6px rgba(0,0,0,0.12)",
+				'card': 'var(--shadow-card)',
+				'hero': 'var(--shadow-hero)',
+				'pricing': 'var(--shadow-pricing)'
 			},
 			backgroundImage: {
 				'gradient-hero': 'var(--gradient-hero)',
@@ -115,5 +133,5 @@ export default {
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 } satisfies Config;

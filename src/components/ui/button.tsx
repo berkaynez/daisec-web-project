@@ -5,7 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
@@ -20,7 +20,10 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
         cta: "bg-accent text-accent-foreground hover:bg-accent-hover shadow-lg hover:shadow-xl transform hover:scale-105 font-medium",
         hero: "bg-accent text-accent-foreground hover:bg-accent-hover shadow-hero hover:shadow-xl transform hover:scale-105 font-medium text-lg",
-        "outline-cta": "border-2 border-accent text-accent bg-background hover:bg-accent hover:text-accent-foreground shadow-md hover:shadow-lg transform hover:scale-105"
+        "outline-cta": "border-2 border-accent text-accent bg-background hover:bg-accent hover:text-accent-foreground shadow-md hover:shadow-lg transform hover:scale-105",
+        primary: "bg-brand-accent text-white hover:opacity-90 focus:ring-brand-accent",
+        "secondary-new": "border border-gray-300 text-gray-900 bg-white hover:bg-gray-50 focus:ring-gray-300",
+        "ghost-new": "text-brand-primary hover:bg-brand-primary/5 focus:ring-brand-primary"
       },
       size: {
         default: "h-10 px-4 py-2",
