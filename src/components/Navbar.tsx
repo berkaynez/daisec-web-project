@@ -105,7 +105,7 @@ const Navbar: React.FC = () => {
               <Button 
                 variant="outline" 
                 size="sm"
-                onClick={() => goTo('/contact')}
+                onClick={() => goTo('/support#contact')}
                 className="text-slate-700 border-slate-300 hover:bg-slate-50"
               >
                 <Phone className="w-4 h-4 mr-2" />
@@ -114,7 +114,7 @@ const Navbar: React.FC = () => {
               <Button 
                 variant="default" 
                 size="sm"
-                onClick={() => goTo('/gateways')}
+                onClick={() => goTo('/pricing#gateways')}
                 className="bg-red-600 hover:bg-red-700 text-white"
               >
                 Choose Gateway
@@ -163,7 +163,7 @@ const Navbar: React.FC = () => {
                 <Button 
                   variant="outline" 
                   size="sm"
-                  onClick={() => goTo('/contact')}
+                  onClick={() => goTo('/support#contact')}
                   className="w-full text-slate-700 border-slate-300 hover:bg-slate-50"
                 >
                   <Phone className="w-4 h-4 mr-2" />
@@ -172,7 +172,7 @@ const Navbar: React.FC = () => {
                 <Button 
                   variant="default" 
                   size="sm"
-                  onClick={() => goTo('/gateways')}
+                  onClick={() => goTo('/pricing#gateways')}
                   className="w-full bg-red-600 hover:bg-red-700 text-white"
                 >
                   Choose Gateway
