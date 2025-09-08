@@ -65,7 +65,7 @@ DaiSec is a revolutionary security platform that breathes new life into your exi
 
 ## 🏗️ Architecture
 
-DaiSec offers three flexible deployment models to fit your needs:
+DaiSec offers two flexible deployment models to fit your needs:
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -88,20 +88,6 @@ DaiSec offers three flexible deployment models to fit your needs:
 │  │  Processing     │           │  │  Processing     │       │
 │  └─────────────────┘           │  └─────────────────┘       │
 │                                                             │
-├─────────────────────────────────────────────────────────────┤
-│                                                             │
-│  🚀 Edge AI Model (Jetson)                                 │
-│  ┌─────────────────┐                                        │
-│  │   Your Cameras  │                                        │
-│  │  (IP/Web/RTSP)  │                                        │
-│  └─────────────────┘                                        │
-│           │                                                 │
-│           ▼                                                 │
-│  ┌─────────────────┐                                        │
-│  │  Jetson Nano    │                                        │
-│  │  Edge AI        │                                        │
-│  └─────────────────┘                                        │
-│                                                             │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -118,12 +104,6 @@ DaiSec offers three flexible deployment models to fit your needs:
    - Local AI processing
    - Works with ANY camera brand
    - Offline capability
-
-3. **🚀 Edge AI Model**
-   - Jetson Nano/Orin for maximum performance
-   - Advanced AI capabilities
-   - Industrial-grade reliability
-   - Custom integrations
 
 ## 💰 Pricing Models
 
