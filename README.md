@@ -3,7 +3,7 @@
 **Turn old cameras into smart, AI-powered security in minutes** 🚀
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Deploy on Vercel](https://img.shields.io/badge/deploy%20on-vercel-black.svg)](https://vercel.com/new/clone?repository-url=https://github.com/berkaynez/secure-sense-launch)
+[![Deploy on Vercel](https://img.shields.io/badge/deploy%20on-vercel-black.svg)](https://vercel.com/new/clone?repository-url=https://github.com/berkaynez/daisec-web-project)
 [![React](https://img.shields.io/badge/React-18+-blue.svg)](https://reactjs.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3+-38B2AC.svg)](https://tailwindcss.com/)
 
