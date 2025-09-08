@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
 import { SectionHeader } from '@/components/SectionHeader';
@@ -32,7 +32,7 @@ const Pricing: React.FC = () => {
 
   const yearlyDiscount = 0.15;
 
-  const pricingPlans = [
+  const pricingPlans = useMemo(() => [
     {
       name: "Free",
       price: isYearly ? "$0" : "$0",
@@ -136,9 +136,9 @@ const Pricing: React.FC = () => {
       variant: "outline-cta" as const,
       popular: false
     }
-  ];
+  ], [isYearly, yearlyDiscount]);
 
-  const gateways = [
+  const gateways = useMemo(() => [
     {
       name: 'Raspberry Pi + Coral',
       description: 'Perfect for home users and small setups',
@@ -160,9 +160,9 @@ const Pricing: React.FC = () => {
       features: ['1-2 cameras @ 2fps', 'Instant setup', 'Automatic updates'],
       icon: Cloud
     }
-  ];
+  ], []);
 
-  const faqItems = [
+  const faqItems = useMemo(() => [
     {
       id: '1',
       question: 'Can I change my plan later?',
@@ -193,7 +193,7 @@ const Pricing: React.FC = () => {
       question: 'Can I use my existing cameras?',
       answer: 'Absolutely! That\'s the main benefit of DaiSec. We upgrade your existing cameras with AI intelligence without requiring replacements.'
     }
-  ];
+  ], []);
 
   const handlePlanSelect = (planName: string) => {
     setSelectedPlan(planName);
