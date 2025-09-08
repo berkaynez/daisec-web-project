@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Check, Star, Zap, Crown, Shield } from "lucide-react";
+import { Check, Star, Zap, Crown, Shield, Smartphone, ExternalLink } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const pricingPlans = [
   {
@@ -105,6 +107,21 @@ const pricingPlans = [
 ];
 
 export const PricingSection = () => {
+  const navigate = useNavigate();
+  const [showAppModal, setShowAppModal] = useState(false);
+  
+  const handleCtaClick = (planName: string) => {
+    if (planName === "Free Plan") {
+      setShowAppModal(true);
+    } else if (planName === "Standard Plan") {
+      navigate("/pricing");
+    } else if (planName === "Gateway + Subscription") {
+      navigate("/pricing#gateways");
+    } else if (planName === "Premium All-In") {
+      navigate("/pricing");
+    }
+  };
+  
   return (
     <section id="pricing" className="py-20 bg-gradient-pricing">
       <div className="container mx-auto px-4">
@@ -200,6 +217,7 @@ export const PricingSection = () => {
                 variant={plan.variant} 
                 className="w-full mt-auto" 
                 size="lg"
+                onClick={() => handleCtaClick(plan.name)}
               >
                 {plan.cta}
               </Button>
@@ -218,6 +236,51 @@ export const PricingSection = () => {
           </div>
         </div>
       </div>
+
+      {/* App Download Modal */}
+      {showAppModal && (
+        <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
+          <div className="bg-card border rounded-2xl p-8 max-w-md w-full">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-accent/20 rounded-xl flex items-center justify-center mx-auto mb-6">
+                <Smartphone className="w-8 h-8 text-primary" />
+              </div>
+              
+              <h3 className="text-2xl font-bold mb-4">Download DaiSec App</h3>
+              <p className="text-muted-foreground mb-6">
+                Get started with our free app to test camera compatibility and explore features.
+              </p>
+              
+              <div className="space-y-3">
+                <Button 
+                  className="w-full"
+                  onClick={() => window.open("https://apps.apple.com/app/daisec", "_blank")}
+                >
+                  <ExternalLink className="w-4 h-4 mr-2" />
+                  Download for iOS
+                </Button>
+                
+                <Button 
+                  variant="outline"
+                  className="w-full"
+                  onClick={() => window.open("https://play.google.com/store/apps/details?id=com.daisec", "_blank")}
+                >
+                  <ExternalLink className="w-4 h-4 mr-2" />
+                  Download for Android
+                </Button>
+                
+                <Button 
+                  variant="ghost"
+                  className="w-full"
+                  onClick={() => setShowAppModal(false)}
+                >
+                  Close
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
