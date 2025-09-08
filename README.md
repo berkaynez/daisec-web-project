@@ -98,23 +98,28 @@ DaiSec offers two flexible deployment models:
 ## 📸 Screenshots
 
 ### 🏠 Landing Page
-![Landing Page](docs/screenshots/landing.jpeg)
+<img src="docs/screenshots/landing.jpeg" alt="Landing Page" width="600" height="400">
+
 *Modern, responsive landing page showcasing DaiSec's value proposition*
 
 ### 💰 Pricing Page
-![Pricing Page](docs/screenshots/pricing.jpeg)
+<img src="docs/screenshots/pricing.jpeg" alt="Pricing Page" width="600" height="400">
+
 *Clear pricing comparison with flexible plans for different needs*
 
 ### 🤖 AI Detection Example
-![AI Detection Example](docs/screenshots/detection.jpeg)
+<img src="docs/screenshots/detection.jpeg" alt="AI Detection Example" width="600" height="400">
+
 *Real-time AI detection showing person and package identification*
 
 ### 📱 Mobile Dashboard
-![Mobile Dashboard](docs/screenshots/mobile.jpeg)
+<img src="docs/screenshots/mobile.jpeg" alt="Mobile Dashboard" width="300" height="600">
+
 *Mobile-optimized interface for monitoring on the go*
 
 ### ⚙️ Gateway Setup
-![Gateway Setup](docs/screenshots/gateway.jpeg)
+<img src="docs/screenshots/gateway.jpeg" alt="Gateway Setup" width="600" height="400">
+
 *Simple plug-and-play gateway configuration process*
 
 ## 🔗 Live Demo
