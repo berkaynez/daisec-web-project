@@ -258,15 +258,15 @@ const Features: React.FC = () => {
               </Card>
             </TabsContent>
           </Tabs>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* Performance & Accuracy */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
+      <Section>
+        <Container>
           <SectionHeader
             title="Performance & Accuracy"
-            description="Real-world performance metrics for different configurations"
+            subtitle="Real-world performance metrics for different configurations"
           />
           
           <div className="max-w-4xl mx-auto">
@@ -308,44 +308,46 @@ const Features: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* FAQ */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
+      <Section className="bg-muted/30">
+        <Container>
           <SectionHeader
             title="Frequently Asked Questions"
-            description="Everything you need to know about DaiSec features"
+            subtitle="Everything you need to know about DaiSec features"
           />
           
           <div className="max-w-3xl mx-auto">
             <Accordion items={faqItems} />
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-hero">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Ready to upgrade your cameras?
-          </h2>
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Join thousands of users who've transformed their security with AI intelligence.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="xl" onClick={() => navigate('/pricing')}>
-              <CheckCircle className="w-5 h-5 mr-2" />
-              Choose Your Plan
-            </Button>
-            <Button variant="outline-cta" size="xl" onClick={() => navigate('/support#contact')}>
-              <Wifi className="w-5 h-5 mr-2" />
-              Talk to Expert
-            </Button>
+      <Section className="bg-gradient-hero">
+        <Container>
+          <div className="text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Ready to upgrade your cameras?
+            </h2>
+            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
+              Join thousands of users who've transformed their security with AI intelligence.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button variant="hero" size="xl" onClick={() => navigate('/pricing')}>
+                <CheckCircle className="w-5 h-5 mr-2" />
+                Choose Your Plan
+              </Button>
+              <Button variant="outline-cta" size="xl" onClick={() => navigate('/support#contact')}>
+                <Wifi className="w-5 h-5 mr-2" />
+                Talk to Expert
+              </Button>
+            </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
     </>
   );
 };
