@@ -61,7 +61,7 @@ const pricingPlans = [
       "Priority support",
       "Mobile + web access"
     ],
-    cta: "Get Gateway Deal",
+    cta: "Choose Gateway Deal",
     variant: "cta" as const,
     popular: true
   },
@@ -79,7 +79,7 @@ const pricingPlans = [
       "24/7 monitoring support",
       "Professional installation"
     ],
-    cta: "Go Premium",
+    cta: "Choose Premium",
     variant: "hero" as const,
     popular: false,
     highlight: "Most Popular for New Installs"
