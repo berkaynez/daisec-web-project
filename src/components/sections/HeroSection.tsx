@@ -47,7 +47,7 @@ export const HeroSection = () => {
                 variant="outline-cta"
                 size="xl"
                 className="animate-scale-in"
-                onClick={() => navigate("/contact")}
+                onClick={() => navigate("/support#contact")}
               >
                 <Eye className="w-5 h-5 mr-2" />
                 Talk to Expert

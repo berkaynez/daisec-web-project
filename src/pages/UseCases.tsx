@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useNavigate } from 'react-router-dom';
 import { SectionHeader } from '@/components/SectionHeader';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -21,6 +22,7 @@ import {
 } from 'lucide-react';
 
 const UseCases: React.FC = () => {
+  const navigate = useNavigate();
   const scenarios = [
     {
       icon: Package,
@@ -134,11 +136,11 @@ const UseCases: React.FC = () => {
               From porch piracy prevention to warehouse monitoring, our AI adapts to your needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="hero" size="xl" onClick={() => window.location.href = '/pricing'}>
+              <Button variant="hero" size="xl" onClick={() => navigate('/pricing')}>
                 <CheckCircle className="w-5 h-5 mr-2" />
                 Pick a Plan
               </Button>
-              <Button variant="outline-cta" size="xl" onClick={() => window.location.href = '/support'}>
+              <Button variant="outline-cta" size="xl" onClick={() => navigate('/support#contact')}>
                 <Users className="w-5 h-5 mr-2" />
                 Talk to Expert
               </Button>
@@ -193,7 +195,7 @@ const UseCases: React.FC = () => {
                   <Button 
                     className="w-full" 
                     variant="outline"
-                    onClick={() => window.location.href = '/pricing'}
+                    onClick={() => navigate('/pricing')}
                   >
                     Learn More
                     <ArrowRight className="w-4 h-4 ml-2" />
@@ -315,11 +317,11 @@ const UseCases: React.FC = () => {
             Join thousands of satisfied customers who've upgraded their security with DaiSec AI.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="xl" onClick={() => window.location.href = '/pricing'}>
+            <Button variant="hero" size="xl" onClick={() => navigate('/pricing')}>
               <CheckCircle className="w-5 h-5 mr-2" />
               Pick a Plan
             </Button>
-            <Button variant="outline-cta" size="xl" onClick={() => window.location.href = '/support'}>
+            <Button variant="outline-cta" size="xl" onClick={() => navigate('/support#contact')}>
               <Users className="w-5 h-5 mr-2" />
               Talk to Expert
             </Button>

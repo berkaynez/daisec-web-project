@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { RouterProvider } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { router } from "./router";
-import React, { Suspense } from "react";
+import React from "react";
 
 const queryClient = new QueryClient();
 
@@ -15,9 +15,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <HelmetProvider>
-        <Suspense fallback={<div className="w-full py-20 text-center text-muted-foreground">Loading…</div>}>
-          <RouterProvider router={router} />
-        </Suspense>
+        <RouterProvider router={router} />
       </HelmetProvider>
     </TooltipProvider>
   </QueryClientProvider>

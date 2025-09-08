@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useNavigate } from 'react-router-dom';
 import { SectionHeader } from '@/components/SectionHeader';
 import { Accordion } from '@/components/Accordion';
 import { Button } from '@/components/ui/button';
@@ -21,6 +22,7 @@ import {
 } from 'lucide-react';
 
 const Features: React.FC = () => {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('detection');
 
   const coreFeatures = [
@@ -118,11 +120,11 @@ const Features: React.FC = () => {
                 instant alerts, and intelligent recording. No replacement needed.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button variant="hero" size="xl" onClick={() => window.location.href = '/pricing'}>
+                <Button variant="hero" size="xl" onClick={() => navigate('/pricing')}>
                   <Zap className="w-5 h-5 mr-2" />
                   Choose Your Plan
                 </Button>
-                <Button variant="outline-cta" size="xl" onClick={() => window.location.href = '/support'}>
+                <Button variant="outline-cta" size="xl" onClick={() => navigate('/support#contact')}>
                   <Eye className="w-5 h-5 mr-2" />
                   Talk to Expert
                 </Button>
@@ -331,11 +333,11 @@ const Features: React.FC = () => {
             Join thousands of users who've transformed their security with AI intelligence.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="xl" onClick={() => window.location.href = '/pricing'}>
+            <Button variant="hero" size="xl" onClick={() => navigate('/pricing')}>
               <CheckCircle className="w-5 h-5 mr-2" />
               Choose Your Plan
             </Button>
-            <Button variant="outline-cta" size="xl" onClick={() => window.location.href = '/support'}>
+            <Button variant="outline-cta" size="xl" onClick={() => navigate('/support#contact')}>
               <Wifi className="w-5 h-5 mr-2" />
               Talk to Expert
             </Button>

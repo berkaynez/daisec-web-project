@@ -2,22 +2,22 @@ import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Phone } from 'lucide-react';
 import { NavLink, useNavigate } from 'react-router-dom';
+import SmartLink from './SmartLink';
 import Logo from './Logo';
 
 const menuItems = [
-  { label: 'Features', href: '#features' },
-  { label: 'Solutions', href: '#solutions' },
-  { label: 'Gateways', href: '#gateways' },
-  { label: 'Use Cases', href: '#use-cases' },
-  { label: 'Pricing', href: '#pricing' },
-  { label: 'Docs', href: '#docs' },
-  { label: 'Support', href: '#support' },
+  { label: 'Features', href: '/features' },
+  { label: 'Solutions', href: '/solutions' },
+  { label: 'Gateways', href: '/gateways' },
+  { label: 'Use Cases', href: '/use-cases' },
+  { label: 'Pricing', href: '/pricing' },
+  { label: 'Docs', href: '/docs' },
+  { label: 'Support', href: '/support' },
 ];
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('');
 
   // Handle scroll effect
   useEffect(() => {
@@ -27,31 +27,6 @@ const Navbar: React.FC = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Handle active section detection
-  useEffect(() => {
-    const observerOptions = {
-      root: null,
-      rootMargin: '-20% 0px -70% 0px',
-      threshold: 0
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
-    }, observerOptions);
-
-    // Observe all sections
-    menuItems.forEach((item) => {
-      const element = document.querySelector(item.href);
-      if (element) observer.observe(element);
-    });
-
-    return () => observer.disconnect();
   }, []);
 
   const navigate = useNavigate();
@@ -90,7 +65,7 @@ const Navbar: React.FC = () => {
               {menuItems.map((item) => (
                 <NavLink
                   key={item.href}
-                  to={item.href.replace('#','/')}
+                  to={item.href}
                   className={({ isActive }) => `text-sm font-medium transition-colors duration-200 hover:text-red-600 focus:outline-none focus:text-red-600 ${
                     isActive ? 'text-red-600' : isScrolled ? 'text-slate-700' : 'text-slate-600'
                   }`}
@@ -148,7 +123,7 @@ const Navbar: React.FC = () => {
               {menuItems.map((item) => (
                 <NavLink
                   key={item.href}
-                  to={item.href.replace('#','/')}
+                  to={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={({ isActive }) => `block w-full text-left px-3 py-2 text-base font-medium rounded-md transition-colors duration-200 hover:bg-slate-50 focus:outline-none focus:bg-slate-50 ${
                     isActive ? 'text-red-600 bg-red-50' : 'text-slate-700'

@@ -7,6 +7,7 @@ import { Accordion } from '@/components/Accordion';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Switch } from '@/components/ui/switch';
+import { useHashScroll } from '@/hooks/useHashScroll';
 import { 
   Zap, 
   Shield, 
@@ -22,6 +23,7 @@ import {
 } from 'lucide-react';
 
 const Pricing: React.FC = () => {
+  useHashScroll();
   const [isYearly, setIsYearly] = useState(false);
   const [showCheckoutModal, setShowCheckoutModal] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState('');
@@ -241,7 +243,7 @@ const Pricing: React.FC = () => {
       </section>
 
       {/* Pricing Plans */}
-      <section className="py-20">
+      <section id="plans" className="py-20">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
             {pricingPlans.map((plan, index) => (

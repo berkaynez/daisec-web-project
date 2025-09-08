@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useNavigate } from 'react-router-dom';
 import { SectionHeader } from '@/components/SectionHeader';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -18,6 +19,7 @@ import {
 } from 'lucide-react';
 
 const Docs: React.FC = () => {
+  const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState('getting-started');
 
   const sections = [
@@ -72,7 +74,7 @@ const Docs: React.FC = () => {
               <p className="text-sm text-muted-foreground mb-3">
                 If you run into any issues, check our troubleshooting guide or contact support.
               </p>
-              <Button variant="outline" size="sm" onClick={() => window.location.href = '/support'}>
+              <Button variant="outline" size="sm" onClick={() => navigate('/support#contact')}>
                 Contact Support
               </Button>
             </div>
@@ -412,7 +414,7 @@ const Docs: React.FC = () => {
               <p className="text-sm text-blue-800 mb-3">
                 Contact our support team for personalized assistance.
               </p>
-              <Button variant="outline" size="sm" onClick={() => window.location.href = '/support'}>
+              <Button variant="outline" size="sm" onClick={() => navigate('/support#contact')}>
                 Contact Support
               </Button>
             </div>
@@ -495,11 +497,11 @@ const Docs: React.FC = () => {
             Can't find what you're looking for? Our support team is here to help.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="xl" onClick={() => window.location.href = '/support'}>
+            <Button variant="hero" size="xl" onClick={() => navigate('/support#contact')}>
               <CheckCircle className="w-5 h-5 mr-2" />
               Contact Support
             </Button>
-            <Button variant="outline-cta" size="xl" onClick={() => window.location.href = '/pricing'}>
+            <Button variant="outline-cta" size="xl" onClick={() => navigate('/pricing')}>
               <ArrowRight className="w-5 h-5 mr-2" />
               Get Started
             </Button>

@@ -1,18 +1,18 @@
-import React, { lazy } from 'react';
+import React from 'react';
 import ScrollToTop from '@/components/ScrollToTop';
 import { createBrowserRouter } from 'react-router-dom';
 import MainLayout from '@/layouts/MainLayout';
 
-const Home = lazy(() => import('@/pages/Home'));
-const Features = lazy(() => import('@/pages/Features'));
-const Solutions = lazy(() => import('@/pages/Solutions'));
-const Gateways = lazy(() => import('@/pages/Gateways'));
-const UseCases = lazy(() => import('@/pages/UseCases'));
-const Pricing = lazy(() => import('@/pages/Pricing'));
-const Docs = lazy(() => import('@/pages/Docs'));
-const Support = lazy(() => import('@/pages/Support'));
-const Contact = lazy(() => import('@/pages/Contact'));
-const NotFound = lazy(() => import('@/pages/NotFound'));
+import Home from '@/pages/Home';
+import Features from '@/pages/Features';
+import Solutions from '@/pages/Solutions';
+import Gateways from '@/pages/Gateways';
+import UseCases from '@/pages/UseCases';
+import Pricing from '@/pages/Pricing';
+import Docs from '@/pages/Docs';
+import Support from '@/pages/Support';
+import Contact from '@/pages/Contact';
+import NotFound from '@/pages/NotFound';
 
 export const router = createBrowserRouter([
   {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useNavigate } from 'react-router-dom';
 import { SectionHeader } from '@/components/SectionHeader';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -21,6 +22,7 @@ import {
 } from 'lucide-react';
 
 const Gateways: React.FC = () => {
+  const navigate = useNavigate();
   const gatewayComparison = [
     {
       name: 'Raspberry Pi 4B + Coral USB',
@@ -152,11 +154,11 @@ const Gateways: React.FC = () => {
               local processing with offline capabilities.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="hero" size="xl" onClick={() => window.location.href = '/pricing#gateways'}>
+              <Button variant="hero" size="xl" onClick={() => navigate('/pricing#gateways')}>
                 <CheckCircle className="w-5 h-5 mr-2" />
                 Choose Gateway
               </Button>
-              <Button variant="outline-cta" size="xl" onClick={() => window.location.href = '/support'}>
+              <Button variant="outline-cta" size="xl" onClick={() => navigate('/support#contact')}>
                 <Settings className="w-5 h-5 mr-2" />
                 Talk to Expert
               </Button>
@@ -230,7 +232,7 @@ const Gateways: React.FC = () => {
                 <Button 
                   className="w-full mt-6" 
                   variant="outline"
-                  onClick={() => window.location.href = '/pricing#gateways'}
+                  onClick={() => navigate('/pricing#gateways')}
                 >
                   Choose This Gateway
                   <ArrowRight className="w-4 h-4 ml-2" />
@@ -362,11 +364,11 @@ const Gateways: React.FC = () => {
             Get expert recommendations based on your specific needs and network requirements.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="xl" onClick={() => window.location.href = '/pricing#gateways'}>
+            <Button variant="hero" size="xl" onClick={() => navigate('/pricing#gateways')}>
               <CheckCircle className="w-5 h-5 mr-2" />
               Choose Gateway
             </Button>
-            <Button variant="outline-cta" size="xl" onClick={() => window.location.href = '/support'}>
+            <Button variant="outline-cta" size="xl" onClick={() => navigate('/support#contact')}>
               <Settings className="w-5 h-5 mr-2" />
               Talk to Expert
             </Button>
